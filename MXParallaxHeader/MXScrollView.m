@@ -135,6 +135,10 @@ static void * const kMXScrollViewKVOContext = (void*)&kMXScrollViewKVOContext;
 #pragma mark KVO
 
 - (void)addObserverToView:(UIScrollView *)scrollView {
+    //ignore the uitextview change
+    if([scrollView isKindOfClass:[UITextView class]]){
+        return;
+    }
     _lock = (scrollView.contentOffset.y > -scrollView.contentInset.top);
     
     [scrollView addObserver:self
