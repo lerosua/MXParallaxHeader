@@ -251,7 +251,7 @@ static void * const kMXParallaxHeaderKVOContext = (void*)&kMXParallaxHeaderKVOCo
     if (context == kMXParallaxHeaderKVOContext) {
         
         if ([keyPath isEqualToString:NSStringFromSelector(@selector(contentOffset))]) {
-            [self layoutContentView];
+//            [self layoutContentView];
         }
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
