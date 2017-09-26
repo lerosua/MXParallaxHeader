@@ -251,7 +251,13 @@ static void * const kMXParallaxHeaderKVOContext = (void*)&kMXParallaxHeaderKVOCo
     if (context == kMXParallaxHeaderKVOContext) {
         
         if ([keyPath isEqualToString:NSStringFromSelector(@selector(contentOffset))]) {
-//            [self layoutContentView];
+            if ([keyPath isEqualToString:NSStringFromSelector(@selector(contentOffset))]) {
+                NSValue *value = change[@"new"];
+                CGPoint point = [value CGPointValue];
+                if(abs(point.y) <  CGRectGetHeight(self.scrollView.frame)-70){
+                    [self layoutContentView];
+                }
+            }
         }
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
