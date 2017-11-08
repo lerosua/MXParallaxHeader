@@ -52,6 +52,7 @@ typedef NS_ENUM(NSInteger, MXParallaxHeaderMode) {
      * top with refresh
      */
     MXParallaxHeaderModeTopRefresh,
+    MXParallaxHeaderModeBottomRefresh,
 
 };
 

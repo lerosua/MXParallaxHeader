@@ -152,6 +152,7 @@ static void * const kMXParallaxHeaderKVOContext = (void*)&kMXParallaxHeaderKVOCo
             break;
             
         case MXParallaxHeaderModeBottom:
+        case MXParallaxHeaderModeBottomRefresh:
             [self setBottomModeConstraints];
             break;
             
@@ -253,7 +254,7 @@ static void * const kMXParallaxHeaderKVOContext = (void*)&kMXParallaxHeaderKVOCo
         
         if ([keyPath isEqualToString:NSStringFromSelector(@selector(contentOffset))]) {
 
-            if(self.mode == MXParallaxHeaderModeTopRefresh){
+            if(self.mode == MXParallaxHeaderModeTopRefresh || self.mode == MXParallaxHeaderModeBottomRefresh){
                 NSValue *value = change[@"new"];
                 CGPoint point = [value CGPointValue];
                 if(abs(point.y) <  CGRectGetHeight(self.view.frame)+20){
